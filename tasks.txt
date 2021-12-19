@@ -1,0 +1,29 @@
+Set up Mongo database
+- define the schema
+- use the schema to create a model
+- export the model to be used in server/index.js
+
+1. GOAL: When the user loads the page, the user should see a list of all names of previously created cows (but not their descriptions).
+
+FRONT END
+- import React / DONE
+- import axios / DONE
+- use CompoundDidMount() in the base level component / DONE
+- Make an axios GET requet inside of the CompoundDidMount() / DONE
+
+BACK END
+- handle the request coming from front end / DONE
+- use .find method / DONE
+
+2. GOAL: When the user types the name and description of a new cow they want to input into the database and presses the [Submit] button, the newly created cow's information should be displayed in the list from the previous step only after the data has been successfully written to the database.
+
+FRONT END
+- Create a separate AddCow compoenent, must be stateful
+- create 2 label, 2 input fields, and a submit button
+- create event handler functions to allow field for input. Remember to event.preventDefault to prevent default behavior.
+- bind the function to the component
+- Use the put the function in the onChange attr
+
+BACK END
+- route the post request from the front end.
+- use insertOne() method to query the db and insert new documents.
