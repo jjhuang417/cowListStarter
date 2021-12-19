@@ -23,7 +23,6 @@ loggin();
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/cows', (req, res) => {
-  console.log('REQUEST IS ROUTED')
   Cow.find({}, (err, data) => {
     if (err) {
       res.status(404).send(err);
@@ -31,6 +30,17 @@ app.get('/cows', (req, res) => {
       res.status(200).send(data);
     }
   });
+})
+
+app.post('/cows', (req, res) => {
+  Cow.find({}, (error, data) => {
+    if (error) {
+      res.status(404).send(error);
+    } else {
+      let newCow = new Cow (req.body);
+      newCow.save();
+    }
+  })
 })
 
 app.listen(PORT, () => {

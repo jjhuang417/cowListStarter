@@ -9,9 +9,21 @@ class App extends React.Component {
     this.state = {
       'cows': []
     }
+    this.addACowFunc = this.addACowFunc.bind(this);
   }
 
-  
+  addACowFunc(userInputName, userInputDescription){
+    axios.post('/cows', {
+      name: userInputName,
+      description: userInputDescription
+    })
+    .then(() => {
+      this.setState({cows: [...this.state.cows, {'name': userInputName}]})
+    })
+    .catch((error) => {
+      console.log('POST request failed');
+    })
+  }
 
   componentDidMount(){
     axios.get('/cows')
@@ -27,7 +39,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>Cow List</h1>
-        <AddCow />
+        <AddCow addACowFunc={this.addACowFunc}/>
         <List cows={this.state.cows}/>
       </div>
     )

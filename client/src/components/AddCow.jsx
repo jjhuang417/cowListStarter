@@ -10,7 +10,7 @@ class AddCow extends React.Component {
     }
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDescritionChange = this.handleDescritionChange.bind(this);
-    this.submitButton = this.submitButton.bind(this);
+    this.handleAddCow = this.handleAddCow.bind(this);
   }
 
   handleNameChange(event) {
@@ -19,6 +19,11 @@ class AddCow extends React.Component {
 
   handleDescritionChange(event) {
     this.setState({descriptionBar: event.target.value})
+  }
+
+  handleAddCow(event) {
+    event.preventDefault();
+    this.props.addACowFunc(this.state.nameBar, this.state.descriptionBar);
   }
 
   render(){
@@ -36,7 +41,7 @@ class AddCow extends React.Component {
         <input
           value={this.state.descriptionBar}
           onChange={this.handleDescritionChange}/>
-        <button onClick={this.submitButton}>Submit!</button>
+        <button onClick={this.handleAddCow}>Submit!</button>
       </form>
     )
   }

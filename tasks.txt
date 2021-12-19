@@ -18,12 +18,12 @@ BACK END
 2. GOAL: When the user types the name and description of a new cow they want to input into the database and presses the [Submit] button, the newly created cow's information should be displayed in the list from the previous step only after the data has been successfully written to the database.
 
 FRONT END
-- Create a separate AddCow compoenent, must be stateful
-- create 2 label, 2 input fields, and a submit button
-- create event handler functions to allow field for input. Remember to event.preventDefault to prevent default behavior.
-- bind the function to the component
-- Use the put the function in the onChange attr
+- Create a separate AddCow compoenent, must be stateful / DONE
+- create 2 label, 2 input fields, and a submit button / DONE
+- create event handler functions to allow field for input. Remember to event.preventDefault to prevent default behavior. / DONE
+- bind the function to the component / DONE
+- Use the put the function in the onChange attr / DONE
 
 BACK END
-- route the post request from the front end.
-- use insertOne() method to query the db and insert new documents.
+- route the post request from the front end. / DONE
+- created a new instance and added to the db. / DONE
